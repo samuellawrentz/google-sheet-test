@@ -1,16 +1,27 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>    
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1jUVLRr4Rf_I_uWWK0ea5OJgjznpZDfv5_jYQtgYqsNI/edit?usp=sharing';
+// Read from the public sheet
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1rtBP6a4xNMJMNtjPK4udX_UVjtuzytXZiEsKWX6V6Lo/edit?usp=sharing';
 
   function init() {
     Tabletop.init( { key: publicSpreadsheetUrl,
                      callback: showInfo,
-                     simpleSheet: true,
-                     authkey: 'AIzaSyA6R2NZ22WaPrp1Zivxo3sWGDPHb3_p4DE' } )
+                     simpleSheet: true } )
   }
 
+// Display data on a table
   function showInfo(data, tabletop) {
-    console.log(data);
+    const table = document.createElement('table');
+    data.forEach(element => {
+      const tr = document.createElement('tr');
+      table.append(tr);
+      for(let i in element){
+        const td = document.createElement('td');
+        td.innerHTML = element[i];
+        tr.append(td);
+      }
+    });
+    document.body.append(table);
   }
 
   window.addEventListener('DOMContentLoaded', init)
