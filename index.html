@@ -1,0 +1,19 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1jUVLRr4Rf_I_uWWK0ea5OJgjznpZDfv5_jYQtgYqsNI/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true,
+                     authkey: 'AIzaSyA6R2NZ22WaPrp1Zivxo3sWGDPHb3_p4DE' } )
+  }
+
+  function showInfo(data, tabletop) {
+    console.log(data);
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+</script>
+
+
